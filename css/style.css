@@ -1,3 +1,10 @@
+html,
+body,
+.main {
+  height: 100%;
+  width: 100%;
+}
+
 body,
 div,
 ul,
@@ -9,9 +16,62 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   font-family: "Roboto", sans-serif;
+}
+
+/* Define positioning of closed nav drawer and size and color */
+
+nav {
+  background-color: #fff;
+  width: 250px;
+  height: 100%;
+  position: absolute;
+  -webkit-transform: translate(-250px, 0);
+  transform: translate(-250px, 0);
+  transition: transform 0.3s ease;
+}
+
+/* Define positioning of opened nav drawer */
+
+nav.open {
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0);
+}
+
+/* Nav list should use full width of nav */
+
+.nav-list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Define look of each nav menu list item */
+
+.nav-item {
+  box-sizing: border-box;
+  display: list-item;
+  width: 100%;
+  text-align: center;
+  line-height: 24px;
+  padding: 24px;
+}
+
+/* Define positioning of element user clicks on to display nav menu */
+
+.header-menu {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  padding: 1em;
+}
+
+/* Define size and fill color of icon for showing nav menu */
+
+.header-menu svg {
+  width: 32px;
 }
 
 .clear-fix {
@@ -24,9 +84,11 @@ h6 {
   padding: 0 5%;
 }
 
+/* Define default font info for h elements */
+
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #800000; /* reddish instead of orange */
   line-height: 48px;
   display: inline;
 }
@@ -42,7 +104,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #999; /* gray instead of black */
   line-height: 22px;
 }
 
@@ -57,10 +119,11 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
+  padding: 10px 5%;
 
 }
 
+/* Formatting for date values */
 
 .date-text {
   font-style: italic;
@@ -70,20 +133,25 @@ h5 {
   float: left;
 }
 
+/* Formatting for location info */
+
 .location-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
   line-height: 16px;
   float: right;
-
 }
+
+/* Formatting for p elements */
 
 p {
   font-size: 14px;
   color: #333;
   line-height: 21px;
 }
+
+/* Formatting for a elements */
 
 a {
   color: #1199c3;
@@ -92,6 +160,8 @@ a {
   display: block;
 }
 
+/* Formatting for welcome message */
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -99,10 +169,14 @@ a {
   line-height: 28px;
 }
 
-#skills-h3 {
-  color: #f5ae23;
+/* Formatting for Skills header text */
+
+.skills-h3 {
+  color: #800000; /* reddish text instead of orange */
   display: none;
 }
+
+/* Defining some of the common colors being used */
 
 .orange {
   background-color: #f5ae23;
@@ -110,6 +184,10 @@ a {
 
 .orange-text {
   color: #f5ae23;
+}
+
+.reddish-text {
+  color: #800000;
 }
 
 .white-text {
@@ -120,20 +198,28 @@ a {
 .gray {
   background-color: #f3f3f3;
   padding-bottom: 10px;
-  clear:both;
+  clear: both;
 }
 
 .dark-gray {
   background-color: #4a4a4a;
 }
 
+.blue {
+  background-color: #00f;
+}
+
+.light-blue {
+  background-color: #3399ff;
+}
+
 /* TODO: Replace with image later */
-#header {
-  background-color: #484848;
+.header {
+  background-color: #3399ff; /* change dark gray to light blue */
 }
 
 .flex-box {
-  display: -webkit-flex;
+  /*display: -webkit-flex;*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -149,12 +235,14 @@ ul {
   list-style-type: none;
 }
 
-.biopic {
+.bio-pic {
   float: left;
   padding: 10px;
   width: 200px;
   display: none;
 }
+
+/* Set default padding around some elements */
 
 img {
   padding: 10px;
@@ -164,51 +252,59 @@ span {
   padding: 5px;
 }
 
-#lets-connect {
+button {
+  padding: 10px;
+}
+
+.lets-connect {
   text-align: center;
 }
 
-/* Media queries to handle various device widths */
+/* Setting some properties for map display */
 
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
-}
-
-#map {
+.map {
   display: block;
   height: 100%;
   margin: 0 5%;
 }
 
-#mapDiv {
+.mapDiv {
   height: 400px;
   width: 100%;
   padding-bottom: 5%;
 }
 
+/* Media queries to handle various device widths */
+
+@media only screen and (max-width: 1024px) {
+  .lets-connect {
+    margin-top: 5%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .bio-pic {
+    width: 175px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .lets-connect {
+    margin-top: 10%;
+  }
+
+  .bio-pic {
+    width: 150px;
+  }
+
+  .welcome-message {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
+  .skills-h3,
+  .bio-pic {
     display: block;
   }
 }

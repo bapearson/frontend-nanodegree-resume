@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-
-<!--
-This is an HTML document. It contains information about how elements in the website
-are arranged. In other words, it describes the layout of a website.
-
-I can't wait to see the resumes you put together!
-
-Cameron Pittman, Udacity Course Developer
--->
-
-<!--
-The <head> of a website generally links to important resources the page will
-need to load. You'll see a lot of <link>s to CSS files for styles and
-<scripts> for JavaScript files to build interactions.
--->
+<!doctype html>
+<html>
 <head>
   <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
@@ -23,44 +9,48 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
-
-  <!--
-  jQuery is a common JavaScript library for reading and making changes to the
-  Document Object Model (DOM). The DOM is a tree that contains information
-  about what is actually visible on a website.
-
-  While HTML is a static document, the browser converts HTML to the
-  DOM and the DOM can change. In fact, JavaScript's power comes from
-  its ability to manipulate the DOM, which is essentially a JavaScript
-  object. When JavaScript makes something interesting happen on a
-  website, it's likely the action happened because JavaScript changed
-  the DOM. jQuery is fast and easy to use, but it doesn't do anything
-  you can't accomplish with vanilla (regular) JavaScript.
-  -->
   <script src="js/jQuery.js"></script>
 
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
 
   <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
+  The <script> tag below adds an interactive Google Map to the resume!
   -->
-<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-  <div id="main">
-    Hello world!   <!-- You'll be deleting this line in the course -->
+  <header>
+    <div>
+      <!-- The <a> element lets us hide/show the nav menu -->
+      <a id="menu" class="header-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fill="white" d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
 
+  <!-- Collapsible nav drawer with links to sections of page -->
+  <nav id="drawer" class="nav">
+    <h1>Menu</h1>
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#header">Biography</a></li>
+      <li class="nav-item"><a href="#workExperience">Work</a></li>
+      <li class="nav-item"><a href="#projects">Projects</a></li>
+      <li class="nav-item"><a href="#education">Education</a></li>
+      <li class="nav-item"><a href="#mapDiv">Locations map</a></li>
+    </ul>
+  </nav>
+
+  <div id="main" class="main">
     <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
+    The code will add information to each of the sections of the
+    resume below.
     -->
-    <div id="header" class="center-content clear-fix">
+    <div id="header" class="header center-content clear-fix">
       <ul id="topContacts" class="flex-box"></ul>
     </div>
     <div style="clear: both;"></div>
@@ -73,11 +63,11 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <div id="education" class="gray">
       <h2>Education</h2>
     </div>
-    <div id="mapDiv">
+    <div id="mapDiv" class="mapDiv">
       <h2>Where I've Lived and Worked</h2>
     </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
+    <div id="lets-connect" class="lets-connect light-blue">
+      <h2 class="blue center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
       </ul>
     </div>
@@ -99,42 +89,48 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   course.
   -->
 
-  <script type="text/javascript">
-    // Notice how all of a sudden there's JavaScript inside this HTML
-    // document? You can write JavaScript between <script> tags. At the end of your
-    // JavaScript, don't forget the closing script tag with the slash (/).
-
-
-    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
-
-    //   two slashes for all following characters on a single line, or
-
-    /*
-        an opening and closing set of slash asterisks for block comments.
-    */
-
-
+  <script>
     if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
+      document.getElementById('topContacts').style.backgroundColor = 'black';
+      //.style.display = 'none';
     }
     if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
+      document.getElementById('header').style.backgroundColor = 'black';
+      //.style.display = 'none';
     }
     if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
+      document.getElementById('workExperience').style.backgroundColor = 'black';
+      //.style.display = 'none';
     }
     if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
+      document.getElementById('projects').style.backgroundColor = 'black';
+      //.style.display = 'none';
     }
     if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
+      document.getElementById('education').style.backgroundColor = 'black';
+      //.style.display = 'none';
     }
     if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.display = 'none';
+      document.getElementById('lets-connect').style.backgroundColor = 'black';
+      //.style.display = 'none';
     }
     if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
+      document.getElementById('mapDiv').style.backgroundColor = 'black';
+      //.style.display = 'none';
     }
+
+    // JavaScript to enable hide/show of nav menu
+    var menu = document.querySelector('#menu');
+    var main = document.querySelector('#main');
+    var drawer = document.querySelector('.nav');
+
+    menu.addEventListener('click', function(e) {
+      drawer.classList.toggle('open');
+      e.stopPropagation();
+    });
+    main.addEventListener('click', function() {
+      drawer.classList.remove('open');
+    });
   </script>
 </body>
 </html>
